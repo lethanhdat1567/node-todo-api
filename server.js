@@ -23,8 +23,11 @@ function serverResponse(req, res, data) {
 
 const server = createServer((req, res) => {
     if (req.method === "OPTIONS") {
+        const origin = req.headers.origin;
+        const allowOrigin = allowOrigins.includes(origin) ? origin : "*";
+
         res.writeHead(204, {
-            "Access-Control-Allow-Origin": "http://localhost:5173",
+            "Access-Control-Allow-Origin": allowOrigin,
             "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type",
         });
