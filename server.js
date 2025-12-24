@@ -1,7 +1,10 @@
 const { createServer } = require("node:http");
 
 const db = [{ id: 1, title: "Task 1", isCompleted: false }];
-const allowOrigins = ["http://localhost:5173"];
+const allowOrigins = [
+    "http://localhost:5173",
+    "https://lethanhdat1567.github.io/todo-frontend-vite/",
+];
 
 function serverResponse(req, res, data) {
     const origin = req.headers.origin;
